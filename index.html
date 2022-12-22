@@ -1,37 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
     <title>Merry Christmas!</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="reload" onclick="refreshPage()">tap here to get a new wish!</div><br>
     <div class="christmas-card">
-        <audio id="player" name="jingle-bells">
-            <source src="http://lenadesign.org/wp-content/uploads/2022/12/Jingle-Bells-Instrumental-Jingle-Punks.mp3" 
-            type="audio/mpeg" />
-            </audio> 
+      
 
-            <input id="open" type="checkbox">
-            <label class="open" for="open"></label>
-            <div class="card-front">
-                <div class="santa-claus"></div>
-                <div class="front"></div>
-                <div class="pompon"></div>
-            </div>
-            <div class="card-inside"></div>    
-            </div>
+      <input id="open" type="checkbox"/>
+      <label class="open" for="open"></label>
+      <div class="card-front">
+        <div class="santa-claus"></div>
+        <div class="front"></div>
+        <div class="pompon"></div>
+      </div>
+      <div class="card-inside"><p id="text" style="display:none"><div id="myBox"></div></p>
+    </div>
+    <audio controls autoplay>
+      <source
+        src="http://lenadesign.org/wp-content/uploads/2022/12/Jingle-Bells-Instrumental-Jingle-Punks.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    
 
-            <br><br><br>
-            <audio controls autoplay>
-                <source src="http://lenadesign.org/wp-content/uploads/2022/12/Jingle-Bells-Instrumental-Jingle-Punks.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-              </audio>
+<script>
 
 
-            
-</body>
+  function refreshPage(){
+    window.location = window.location.href;	}
+
+    let input = document.getElementById("open");
+
+    let wishes = [
+        "Merry Christmas! *<]:{)",
+        "Don we now our ugly sweaters… Let's party! Happy Holidays!",
+        "Christmas is the only time of year in which one can sit in front of a dead tree and eat candy out of socks. Enjoy!",
+        "Wishing you a white Christmas! (And when you run out of white, just open a bottle of red).",
+        "You are a gift in my life. And not the kind I would return for store credit. Merry Christmas!",
+        "A Christmas reminder: Do not try to borrow any money from elves ... they're always a little short! Have a Merry Christmas!",
+        "Wishing you hope, peace and lots of Christmas cookies this holiday season!",
+        "They say the best Christmas gifts come from the heart … but cash and gift cards do wonders too! Happy Holidays!",
+        "Remember, Santa is watching. Everything. Yes, even that. Anyway, Merry Christmas!",
+        "Merry Christmas! May your happiness be large and your bills be small.",
+        "I told Santa you were good this year and sent him a link to your Pinterest board. Merry Christmas to you!",
+        "This Christmas, may your family be functional and all your batteries be included.",
+        "Merry Christmas! I put so much thought into your gift that now it's too late to get it.",
+        "Please note: Christmas is canceled. Apparently, you told Santa you have been good this year … he died laughing.",
+        "Is it just me, or does Santa look younger every year?",
+        "Christmas is mostly for children. But we adults can enjoy it too, until the credit card bills arrive.",
+        "Eat. Drink. Be Merry. Have a wonderful Christmas!",
+        "May the Christmas Season bring only happiness and joy to you and your family.",
+        "The gift of love. The gift of peace. The gift of happiness. May all these be yours at Christmas.",
+        "Wishing you a season full of light and laughter for you and your family.",
+        "Best wishes for a joyous Christmas filled with love, happiness and prosperity!",
+        "May all that is beautiful, meaningful and brings you joy be yours this holiday season and throughout the coming year!",
+        "Merry Christmas! Wishing you all the happiness your holiday can hold!",
+        "May your holidays sparkle with joy and laughter.",
+        "I hope the magic of Christmas fills every corner of your heart and home with joy — now and always.",
+        "Our family wishes you love, joy and peace … today, tomorrow and always.",
+        "May your family have a holiday season that is full of wonderful surprises, treats and nonstop laughter.",
+        "Merry Christmas! Wishing you all the best this holiday season!",
+        "Wishing you a Christmas that's merry and bright!",
+        "We hope you have a safe and relaxing holiday season.",
+        "I hope your holiday season is full of peace, joy and happiness.",
+        "Merry Christmas with lots of love.",
+        "I hope your Christmas is filled with joy this year!",
+        "Happy Holidays! I hope all of your Christmas wishes come true.",
+        "May the magic of the Christmas season fill your home with joy and peace. Sending lots of love to your family.",
+        "You have had more than your share of challenges this year. Wishing you peace and hope at Christmas and a new year full of better days.",
+        "Sending strength, love and peace to you this holiday season.",
+        "My love and thoughts are with you during the Christmas season and the promise of hope it brings.",
+        "Hoping that the new year brings you new possibilities.",
+        "Wishing you love and light in this challenging season.",
+        "I know it's been a hard year for you and your family. I hope the New Year brings better days.",
+        "Our hearts are with you and yours, now and always.",
+        "Sending you hugs this Christmas season. Take some time to care for yourself.",
+        "We know you might be having a difficult time this year, more than ever. Wishing you strength and peace in these challenging times.",
+        "Sometimes the holidays can just remind us what we've lost. Remember that I'm always there for you.",
+        "I hope the holidays bring a chance to rest and recharge.",
+        "May God's love lift you up during this winter of life.",
+        "We're always here to support you, if you need a helping hand this holiday.",
+        "Warmest wishes that you can find in this shadowy time.",
+        "May this season find you among those you love, sharing in the twin glories of generosity and gratitude.",
+        "Christmas is the day that holds all time together.",
+        "I wish we could put up some of the Christmas spirit in jars and open a jar of it every month.",
+        "Christmas will always be as long as we stand heart to heart and hand in hand.",
+        "One of the most glorious messes in the world is the mess created in the living room on Christmas Day. Don't clean it up too quickly.",
+        "Christmas isn't a season. It's a feeling.",
+        "A lovely thing about Christmas is that it's compulsory, like a thunderstorm, and we all go through it together.",
+        "I prefer the retro chic of spending Christmas just like Joseph and Mary did — traveling arduously back to the place of your birth to be counted, with no guarantee of a bed when you get there.",
+        "I am not 100 percent certain what a sugarplum is, but for a few weeks every year I have got visions of them dancing in my head anyway.",
+        "The best of all gifts around any Christmas tree: the presence of a happy family all wrapped up in each other.",
+        "Christmas is a season not only of rejoicing but of reflection.",
+        "My idea of Christmas, whether old-fashioned or modern, is very simple: loving others.",
+        "Peace on earth will come to stay, when we live Christmas every day."];
+    let wish = wishes[Math.floor(Math.random()*wishes.length)];
+    document.getElementById('myBox').innerHTML = wish;
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+  </body>
 </html>
