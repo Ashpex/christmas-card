@@ -10,7 +10,7 @@ body {
 }
 .christmas-card {
   width: 220px;
-  height: 300px;
+  height: 400px;
   position: relative;
   cursor: pointer;
   transform-style: preserve-3d;
